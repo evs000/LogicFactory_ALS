@@ -20,6 +20,7 @@ jobs:
           -v ${{ github.workspace }}:/workspace \
           zzjc1234/logicfactory_als:latest bash -c "
           cd /workspace && \
+          git submodule update --init --recursive && \
           mkdir -p build && cd build && \
           cmake -G Ninja .. && \
           ninja"
