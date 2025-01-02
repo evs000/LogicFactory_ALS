@@ -12,14 +12,8 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Update Submodules
-        run: |
-          git submodule update --init --recursive
-
-      - name: Check Submodules
-        run: |
-          git submodule status
-          tree toolkit
+      - name: submodules-init
+        uses: snickerbockers/submodules-init@v4
 
       - name: Compile Latest Code in Docker
         run: |
