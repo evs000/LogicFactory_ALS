@@ -11,12 +11,10 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-        with:
-          submodules: recursive
 
       - name: Update Submodules
         run: |
-          git submodule update --init --recursive --force
+          git submodule update --init --recursive
 
       - name: Compile Latest Code in Docker
         run: |
