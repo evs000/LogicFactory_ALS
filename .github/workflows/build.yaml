@@ -15,6 +15,10 @@ jobs:
           submodules: recursive   # 确保子模块递归加载
           persist-credentials: true  # 保留 .git 文件夹
 
+      - name: Check .git
+        run: |
+          ls -a
+
       - name: Compile Latest Code in Docker
         run: |
           docker run --rm \
