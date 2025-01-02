@@ -18,7 +18,7 @@ jobs:
         run: |
           docker run --rm \
           -v ${{ github.workspace }}:/workspace \
-          logic-factory:latest bash -c "
+          zzjc1234/logicfactory_als:latest bash -c "
           cd /workspace && \
           mkdir -p build && cd build && \
           cmake -G Ninja .. && \
