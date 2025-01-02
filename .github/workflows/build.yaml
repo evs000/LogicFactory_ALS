@@ -16,6 +16,11 @@ jobs:
         run: |
           git submodule update --init --recursive
 
+      - name: Check Submodules
+        run: |
+          git submodule status
+          tree toolkit
+
       - name: Compile Latest Code in Docker
         run: |
           docker run --rm \
