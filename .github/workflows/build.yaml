@@ -9,20 +9,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repository code
       - name: Checkout Code
         uses: actions/checkout@v3
         with:
-          submodules: recursive  # 初始化和更新子模块
+          submodules: recursive
 
-      # Build and Compile Code Directly Using the Custom Docker Image
-      - name: Build in Docker Container
+      - name: Compile Latest Code in Docker
         run: |
           docker run --rm \
           -v ${{ github.workspace }}:/workspace \
-          -w /workspace \
-          zzjc1234/logicfactory_als \
-          bash -c "
+          logic-factory:latest bash -c "
+          cd /workspace && \
           mkdir -p build && cd build && \
           cmake -G Ninja .. && \
           ninja"
