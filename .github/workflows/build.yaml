@@ -9,9 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code and Initialize Submodules
+        uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: recursive   # 确保子模块递归加载
+          persist-credentials: true  # 保留 .git 文件夹
 
       - name: Compile Latest Code in Docker
         run: |
@@ -22,6 +24,3 @@ jobs:
           mkdir -p build && cd build && \
           cmake -G Ninja .. && \
           ninja"
-        with:
-          context: .
-
