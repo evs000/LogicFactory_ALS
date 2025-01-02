@@ -14,7 +14,6 @@ jobs:
           submodules: 'recursive'
 
       - name: Compile Latest Code in Docker
-        context: .
         run: |
           docker run --rm \
           -v ${{ github.workspace }}:/workspace \
@@ -23,4 +22,6 @@ jobs:
           mkdir -p build && cd build && \
           cmake -G Ninja .. && \
           ninja"
+        with:
+          context: .
 
