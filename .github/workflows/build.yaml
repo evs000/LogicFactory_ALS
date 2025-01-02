@@ -22,7 +22,7 @@ jobs:
             -v ${{ github.workspace }}:/workspace \
             zzjc1234/logicfactory_als:latest bash -c "
             cd /workspace && \
-            git config --global --add safe.directory /workspace && \
+            git config --global --add safe.directory * && \
             git submodule update --init --recursive && \
             mkdir -p build && cd build && \
             cmake -G Ninja .. && \
